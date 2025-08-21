@@ -1,0 +1,36 @@
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/Loan Amortization
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/Loan Amortization.deps.json
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/Loan Amortization.runtimeconfig.json
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/Loan Amortization.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/Loan Amortization.pdb
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/BouncyCastle.Cryptography.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/Google.Protobuf.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/K4os.Compression.LZ4.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/K4os.Compression.LZ4.Streams.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/K4os.Hash.xxHash.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/MySql.Data.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/System.Configuration.ConfigurationManager.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/System.Diagnostics.EventLog.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/System.Security.Cryptography.ProtectedData.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/System.Security.Permissions.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/System.Windows.Extensions.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/ZstdSharp.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/runtimes/win-x64/native/comerr64.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/runtimes/win-x64/native/gssapi64.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/runtimes/win-x64/native/k5sprt64.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/runtimes/win-x64/native/krb5_64.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/runtimes/win-x64/native/krbcc64.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/runtimes/win/lib/net8.0/System.Diagnostics.EventLog.Messages.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/runtimes/win/lib/net8.0/System.Diagnostics.EventLog.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/bin/Debug/net9.0/runtimes/win/lib/net8.0/System.Windows.Extensions.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/obj/Debug/net9.0/Loan Amortization.csproj.AssemblyReference.cache
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/obj/Debug/net9.0/Loan Amortization.GeneratedMSBuildEditorConfig.editorconfig
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/obj/Debug/net9.0/Loan Amortization.AssemblyInfoInputs.cache
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/obj/Debug/net9.0/Loan Amortization.AssemblyInfo.cs
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/obj/Debug/net9.0/Loan Amortization.csproj.CoreCompileInputs.cache
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/obj/Debug/net9.0/Loan Amo.701FF946.Up2Date
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/obj/Debug/net9.0/Loan Amortization.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/obj/Debug/net9.0/refint/Loan Amortization.dll
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/obj/Debug/net9.0/Loan Amortization.pdb
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/obj/Debug/net9.0/Loan Amortization.genruntimeconfig.cache
+/Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/obj/Debug/net9.0/ref/Loan Amortization.dll
