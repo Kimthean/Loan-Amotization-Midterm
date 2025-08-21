@@ -26,18 +26,3 @@
 /Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/obj/Debug/net9.0-windows/Loan Amortization.pdb
 /Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/obj/Debug/net9.0-windows/Loan Amortization.genruntimeconfig.cache
 /Users/thean/Documents/codes/personal/dotnet/Loan Amortizatoin/obj/Debug/net9.0-windows/ref/Loan Amortization.dll
-C:\Users\thean\Documents\Loan-Amotization-Midterm\bin\Debug\net9.0-windows\Loan Amortization.exe
-C:\Users\thean\Documents\Loan-Amotization-Midterm\bin\Debug\net9.0-windows\Loan Amortization.dll
-C:\Users\thean\Documents\Loan-Amotization-Midterm\bin\Debug\net9.0-windows\Loan Amortization.deps.json
-C:\Users\thean\Documents\Loan-Amotization-Midterm\bin\Debug\net9.0-windows\Loan Amortization.runtimeconfig.json
-C:\Users\thean\Documents\Loan-Amotization-Midterm\bin\Debug\net9.0-windows\Loan Amortization.pdb
-C:\Users\thean\Documents\Loan-Amotization-Midterm\obj\Debug\net9.0-windows\Loan Amortization.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\thean\Documents\Loan-Amotization-Midterm\obj\Debug\net9.0-windows\Loan Amortization.AssemblyInfoInputs.cache
-C:\Users\thean\Documents\Loan-Amotization-Midterm\obj\Debug\net9.0-windows\Loan Amortization.AssemblyInfo.cs
-C:\Users\thean\Documents\Loan-Amotization-Midterm\obj\Debug\net9.0-windows\Loan Amortization.csproj.CoreCompileInputs.cache
-C:\Users\thean\Documents\Loan-Amotization-Midterm\obj\Debug\net9.0-windows\Loan Amortization.sourcelink.json
-C:\Users\thean\Documents\Loan-Amotization-Midterm\obj\Debug\net9.0-windows\Loan Amortization.dll
-C:\Users\thean\Documents\Loan-Amotization-Midterm\obj\Debug\net9.0-windows\refint\Loan Amortization.dll
-C:\Users\thean\Documents\Loan-Amotization-Midterm\obj\Debug\net9.0-windows\Loan Amortization.pdb
-C:\Users\thean\Documents\Loan-Amotization-Midterm\obj\Debug\net9.0-windows\Loan Amortization.genruntimeconfig.cache
-C:\Users\thean\Documents\Loan-Amotization-Midterm\obj\Debug\net9.0-windows\ref\Loan Amortization.dll

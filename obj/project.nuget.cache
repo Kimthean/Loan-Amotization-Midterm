@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "XtaohpIBMow=",
+  "dgSpecHash": "SZhSZ5SP7Zo=",
   "success": true,
   "projectFilePath": "C:\\Users\\thean\\Documents\\Loan-Amotization-Midterm\\Loan Amortization.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\thean\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.8\\microsoft.net.illink.tasks.9.0.8.nupkg.sha512"
+  ],
   "logs": []
 }
