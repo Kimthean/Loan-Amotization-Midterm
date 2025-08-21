@@ -1,35 +1,34 @@
-using MySql.Data.MySqlClient;
-using System.Globalization;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace Loan_Amortization
 {
+    // MainForm is the main window for the Loan Amortization Calculator application
     public partial class MainForm : Form
     {
         private List<AmortizationEntry> currentSchedule = new();
 
         public MainForm()
         {
-            InitializeComponent();
-            SetupForm();
+            InitializeComponent(); // Initialize UI components
+            SetupForm(); // Set up the form layout and controls
         }
 
+        // Sets up the main form's properties and layout
         private void SetupForm()
         {
-            // Set form properties
+            // Set form properties (title, size, position, background color)
             this.Text = "Loan Amortization Calculator";
             this.Size = new Size(1200, 800);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.MinimumSize = new Size(1000, 600);
             this.BackColor = Color.FromArgb(240, 244, 248);
 
-            // Create main layout
+            // Create and arrange controls on the form
             CreateControls();
             SetupLayout();
         }
 
-        private void CreateControls()
+    // Creates all UI controls (input fields, buttons, panels, etc.)
+    private void CreateControls()
         {
             // Input Panel
             var inputPanel = new Panel
@@ -144,30 +143,14 @@ namespace Loan_Amortization
             exportCsvButton.FlatAppearance.BorderSize = 0;
             exportCsvButton.Click += ExportCsvButton_Click;
 
-            var saveDatabaseButton = new Button
-            {
-                Name = "saveDatabaseButton",
-                Text = "Save to DB",
-                Font = new Font("Segoe UI", 9),
-                BackColor = Color.FromArgb(220, 53, 69),
-                ForeColor = Color.White,
-                FlatStyle = FlatStyle.Flat,
-                Location = new Point(145, 0),
-                Size = new Size(135, 35),
-                Cursor = Cursors.Hand,
-                Enabled = false
-            };
-            saveDatabaseButton.FlatAppearance.BorderSize = 0;
-            saveDatabaseButton.Click += SaveDatabaseButton_Click;
-
-            exportPanel.Controls.AddRange(new Control[] { exportCsvButton, saveDatabaseButton });
+            exportPanel.Controls.Add(exportCsvButton);
 
             // Add controls to input panel
-            inputPanel.Controls.AddRange(new Control[] {
+            inputPanel.Controls.AddRange([
                 titleLabel, principalLabel, principalTextBox,
                 rateLabel, rateTextBox, termLabel, termTextBox,
                 calculateButton, exportPanel
-            });
+            ]);
 
             // Results Panel
             var resultsPanel = new Panel
@@ -202,7 +185,7 @@ namespace Loan_Amortization
                 AutoSize = false
             };
 
-            resultsPanel.Controls.AddRange(new Control[] { resultsTitle, summaryLabel });
+            resultsPanel.Controls.AddRange([resultsTitle, summaryLabel]);
 
             // DataGridView for schedule
             var scheduleDataGrid = new DataGridView
@@ -228,45 +211,62 @@ namespace Loan_Amortization
                 {
                     Font = new Font("Segoe UI", 9),
                     BackColor = Color.White,
-                    SelectionBackColor = Color.FromArgb(0, 123, 255, 50)
+                    SelectionBackColor = Color.FromArgb(0, 123, 255),
+                    SelectionForeColor = Color.White
                 },
                 AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle
                 {
-                    BackColor = Color.FromArgb(248, 249, 250)
+                    BackColor = Color.FromArgb(248, 249, 250),
+                    SelectionBackColor = Color.FromArgb(0, 123, 255),
+                    SelectionForeColor = Color.White
                 }
             };
 
             // Add all controls to form
-            this.Controls.AddRange(new Control[] { inputPanel, resultsPanel, scheduleDataGrid });
+        Controls.AddRange([inputPanel, resultsPanel, scheduleDataGrid]);
         }
 
-        private void SetupLayout()
+    // Sets up the DataGridView columns and formatting
+    private void SetupLayout()
         {
             // Setup DataGridView columns
-            var dataGrid = this.Controls.Find("scheduleDataGrid", true)[0] as DataGridView;
-            dataGrid.Columns.Add("Month", "Month");
-            dataGrid.Columns.Add("Payment", "Payment");
-            dataGrid.Columns.Add("Interest", "Interest");
-            dataGrid.Columns.Add("Principal", "Principal");
-            dataGrid.Columns.Add("Balance", "Balance");
-
-            // Format currency columns
-            for (int i = 1; i < dataGrid.Columns.Count; i++)
+            var dataGridObj = this.Controls.Find("scheduleDataGrid", true).FirstOrDefault();
+            if (dataGridObj is DataGridView dataGrid)
             {
-                dataGrid.Columns[i].DefaultCellStyle.Format = "C2";
-                dataGrid.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dataGrid.Columns.Add("Month", "Month");
+                dataGrid.Columns.Add("Payment", "Payment");
+                dataGrid.Columns.Add("Interest", "Interest");
+                dataGrid.Columns.Add("Principal", "Principal");
+                dataGrid.Columns.Add("Balance", "Balance");
+
+                // Format currency columns
+                for (int i = 1; i < dataGrid.Columns.Count; i++)
+                {
+                    dataGrid.Columns[i].DefaultCellStyle.Format = "C2";
+                    dataGrid.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                }
+                dataGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
-            dataGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
-        private void CalculateButton_Click(object sender, EventArgs e)
+    // Handles the Calculate button click event
+    // Validates input, calculates the amortization schedule, and updates the UI
+    private void CalculateButton_Click(object sender, EventArgs e)
         {
             try
             {
                 // Get input values
-                var principalText = (this.Controls.Find("principalTextBox", true)[0] as TextBox).Text;
-                var rateText = (this.Controls.Find("rateTextBox", true)[0] as TextBox).Text;
-                var termText = (this.Controls.Find("termTextBox", true)[0] as TextBox).Text;
+                var principalObj = this.Controls.Find("principalTextBox", true).FirstOrDefault();
+                var rateObj = this.Controls.Find("rateTextBox", true).FirstOrDefault();
+                var termObj = this.Controls.Find("termTextBox", true).FirstOrDefault();
+                if (principalObj is not TextBox principalTextBox || rateObj is not TextBox rateTextBox || termObj is not TextBox termTextBox)
+                {
+                    MessageBox.Show("Input controls not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                var principalText = principalTextBox.Text;
+                var rateText = rateTextBox.Text;
+                var termText = termTextBox.Text;
 
                 if (!decimal.TryParse(principalText, out decimal principal) || principal <= 0)
                 {
@@ -287,7 +287,7 @@ namespace Loan_Amortization
                 }
 
                 // Convert rate to decimal
-                annualRate = annualRate / 100;
+                annualRate /= 100;
 
                 // Calculate schedule
                 currentSchedule = CalculateAmortizationSchedule(principal, annualRate, months);
@@ -297,7 +297,6 @@ namespace Loan_Amortization
                 UpdateDataGrid();
                 EnableExportButtons(true);
 
-                MessageBox.Show("Calculation completed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -305,9 +304,12 @@ namespace Loan_Amortization
             }
         }
 
-        private void UpdateSummary(decimal principal, decimal annualRate, int months)
+    // Updates the summary label with loan details and results
+    private void UpdateSummary(decimal principal, decimal annualRate, int months)
         {
-            var summaryLabel = this.Controls.Find("summaryLabel", true)[0] as Label;
+            var summaryObj = Controls.Find("summaryLabel", true).FirstOrDefault();
+            if (summaryObj is not Label summaryLabel)
+                return;
             var totalPayments = currentSchedule.Sum(e => e.Payment);
             var totalInterest = currentSchedule.Sum(e => e.Interest);
             var monthlyPayment = currentSchedule.First().Payment;
@@ -321,26 +323,31 @@ namespace Loan_Amortization
                                $"Total Cost: {totalPayments:C}";
         }
 
-        private void UpdateDataGrid()
+    // Populates the DataGridView with the amortization schedule
+    private void UpdateDataGrid()
         {
-            var dataGrid = this.Controls.Find("scheduleDataGrid", true)[0] as DataGridView;
-            dataGrid.Rows.Clear();
-
-            foreach (var entry in currentSchedule)
+            var dataGridObj = Controls.Find("scheduleDataGrid", true).FirstOrDefault();
+            if (dataGridObj is DataGridView dataGrid)
             {
-                dataGrid.Rows.Add(entry.Month, entry.Payment, entry.Interest, entry.Principal, entry.Balance);
+                dataGrid.Rows.Clear();
+                foreach (var entry in currentSchedule)
+                {
+                    dataGrid.Rows.Add(entry.Month, entry.Payment, entry.Interest, entry.Principal, entry.Balance);
+                }
             }
         }
 
-        private void EnableExportButtons(bool enabled)
+    // Enables or disables the export buttons based on calculation state
+    private void EnableExportButtons(bool enabled)
         {
-            var exportCsvButton = this.Controls.Find("exportCsvButton", true)[0] as Button;
-            var saveDatabaseButton = this.Controls.Find("saveDatabaseButton", true)[0] as Button;
-            exportCsvButton.Enabled = enabled;
-            saveDatabaseButton.Enabled = enabled;
+            var exportCsvObj = this.Controls.Find("exportCsvButton", true).FirstOrDefault();
+            if (exportCsvObj is Button exportCsvButton)
+                exportCsvButton.Enabled = enabled;
         }
 
-        private void ExportCsvButton_Click(object sender, EventArgs e)
+    // Handles the Export CSV button click event
+    // Exports the amortization schedule to a CSV file
+    private void ExportCsvButton_Click(object? sender, EventArgs? e)
         {
             if (currentSchedule.Count == 0)
             {
@@ -368,31 +375,9 @@ namespace Loan_Amortization
                 }
             }
         }
-
-        private void SaveDatabaseButton_Click(object sender, EventArgs e)
-        {
-            if (currentSchedule.Count == 0)
-            {
-                MessageBox.Show("No data to save. Please calculate first.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            var connectionForm = new DatabaseConnectionForm();
-            if (connectionForm.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    SaveScheduleToMySql(currentSchedule, connectionForm.ConnectionString);
-                    MessageBox.Show("Schedule saved to database successfully!", "Save Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error saving to database: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        // Existing calculation methods from console app
+        
+    // Calculates the amortization schedule for the given loan parameters
+        // Returns a list of AmortizationEntry objects
         public static List<AmortizationEntry> CalculateAmortizationSchedule(decimal principal, decimal annualRate, int months)
         {
             var schedule = new List<AmortizationEntry>();
@@ -423,36 +408,8 @@ namespace Loan_Amortization
             return schedule;
         }
 
-        public static void SaveScheduleToMySql(List<AmortizationEntry> schedule, string connStr)
-        {
-            using var conn = new MySqlConnection(connStr);
-            conn.Open();
-            var cmd = conn.CreateCommand();
-            cmd.CommandText = @"CREATE TABLE IF NOT EXISTS amortization (
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                month INT,
-                payment DECIMAL(15,2),
-                interest DECIMAL(15,2),
-                principal DECIMAL(15,2),
-                balance DECIMAL(15,2)
-            )";
-            cmd.ExecuteNonQuery();
-            cmd.CommandText = "DELETE FROM amortization";
-            cmd.ExecuteNonQuery();
-            foreach (var entry in schedule)
-            {
-                cmd.CommandText = "INSERT INTO amortization (month, payment, interest, principal, balance) VALUES (@month, @payment, @interest, @principal, @balance)";
-                cmd.Parameters.Clear();
-                cmd.Parameters.Add("@month", MySqlDbType.Int32).Value = entry.Month;
-                cmd.Parameters.Add("@payment", MySqlDbType.Decimal).Value = entry.Payment;
-                cmd.Parameters.Add("@interest", MySqlDbType.Decimal).Value = entry.Interest;
-                cmd.Parameters.Add("@principal", MySqlDbType.Decimal).Value = entry.Principal;
-                cmd.Parameters.Add("@balance", MySqlDbType.Decimal).Value = entry.Balance;
-                cmd.ExecuteNonQuery();
-            }
-        }
-
-        public static void ExportScheduleToCsv(List<AmortizationEntry> schedule, string filePath)
+    // Exports the amortization schedule to a CSV file
+    public static void ExportScheduleToCsv(List<AmortizationEntry> schedule, string filePath)
         {
             using var writer = new StreamWriter(filePath);
             writer.WriteLine("Month,Payment,Interest,Principal,Balance");

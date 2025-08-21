@@ -1,4 +1,4 @@
-﻿using System.Windows.Forms;
+﻿
 
 namespace Loan_Amortization
 {
@@ -17,7 +17,7 @@ namespace Loan_Amortization
         static void Main(string[] args)
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            Application.SetCompatibleTextRenderingDefault(true);
             Application.Run(new MainForm());
         }
     }

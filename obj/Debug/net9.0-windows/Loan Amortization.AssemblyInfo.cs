@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Loan Amortization")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+69bf1c2e7a8324a635335049e893a3eb01951e5c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Loan Amortization")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Loan Amortization")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
